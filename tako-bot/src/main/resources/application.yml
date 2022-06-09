@@ -1,0 +1,19 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: tako-bot
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc://db_url
+    username: db_user
+    password: db_password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+bot:
+  qq: 0000000
+  password: aaaaaa
+  type: android_phone

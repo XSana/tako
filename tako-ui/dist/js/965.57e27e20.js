@@ -1,0 +1,1 @@
+"use strict";(self["webpackChunktako_ui"]=self["webpackChunktako_ui"]||[]).push([[965],{9965:function(n,t,e){function u(n,t,e,u,r,a){return null}e.r(t),e.d(t,{default:function(){return c}});var r={name:"HomeLayout",components:{},data(){return{theme:"light "}}},a=e(89);const o=(0,a.Z)(r,[["render",u]]);var c=o}}]);

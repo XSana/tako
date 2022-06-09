@@ -1,0 +1,48 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.7'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.30' // 确保添加 Kotlin
+    id 'java'
+}
+
+group = 'vip.aoba'
+version = '2.0.0'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    // Mirai
+    api platform('net.mamoe:mirai-bom:2.11.0-RC2')
+    api 'net.mamoe:mirai-core-api'      // 编译代码使用
+    api 'net.mamoe:mirai-logging-slf4j-simple' // 使用slf4j日志
+    runtimeOnly 'net.mamoe:mirai-core' // 运行时使用
+    // Spring
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // DataBase
+    runtimeOnly 'mysql:mysql-connector-java'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'com.alibaba:druid-spring-boot-starter:1.2.9'
+    // Redis
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    // Utils
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    // Test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
